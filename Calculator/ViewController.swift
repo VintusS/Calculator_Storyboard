@@ -30,6 +30,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var eightrButtonView: UIButton!
     @IBOutlet weak var ninerButtonView: UIButton!
     
+    var resultLabelValue: Double?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         clearButtonView.layer.cornerRadius = clearButtonView.frame.height / 2
@@ -53,6 +55,47 @@ class ViewController: UIViewController {
         ninerButtonView.layer.cornerRadius = ninerButtonView.frame.height / 2
         resultLabelOutlet.text =  ""
     }
-
+    
+    @IBAction func zeroButtonPressed(_ sender: Any) {
+    }
+    @IBAction func oneButtonPressed(_ sender: Any) {
+    }
+    @IBAction func twoButtonPressed(_ sender: Any) {
+    }
+    @IBAction func threeButtonPressed(_ sender: Any) {
+    }
+    @IBAction func fourButtonPressed(_ sender: Any) {
+    }
+    @IBAction func fiveButtonPressed(_ sender: Any) {
+    }
+    @IBAction func sixButtonPressed(_ sender: Any) {
+    }
+    @IBAction func sevenButtonPressed(_ sender: Any) {
+    }
+    @IBAction func eightButtonPressed(_ sender: Any) {
+    }
+    @IBAction func nineButtonPressed(_ sender: Any) {
+    }
+    @IBAction func commaButtonPressed(_ sender: Any) {
+    }
+    @IBAction func clearButtonPressed(_ sender: Any) {
+    }
+    @IBAction func oppositeButtonPressed(_ sender: Any) {
+    }
+    @IBAction func percentageButtonPressed(_ sender: Any) {
+    }
+    @IBAction func divisionButtonPressed(_ sender: Any) {
+    }
+    @IBAction func multiplicationButtonPressed(_ sender: Any) {
+    }
+    @IBAction func minusButtonPressed(_ sender: Any) {
+    }
+    @IBAction func plusButtonPressed(_ sender: Any) {
+    }
+    @IBAction func equalButtonPressed(_ sender: Any) {
+    }
+    
+    
+    
 }
 
