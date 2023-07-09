@@ -307,6 +307,7 @@
                         <outlet property="plusrButtonView" destination="7lv-6a-kDF" id="RWK-wX-Bgd"/>
                         <outlet property="resultLabelOutlet" destination="VhU-fM-2Lc" id="Vfr-hx-Pk1"/>
                         <outlet property="sevenrButtonView" destination="d6n-K6-i6i" id="yYq-iP-h9Y"/>
+                        <outlet property="sixrButtonView" destination="OCl-ac-tmm" id="hzK-Lh-jIl"/>
                         <outlet property="threerButtonView" destination="Fju-wo-a2o" id="lcT-Q4-C5o"/>
                         <outlet property="tworButtonView" destination="SBL-En-7kP" id="aX3-Wz-BHt"/>
                         <outlet property="zerorButtonView" destination="Vfw-ax-Q6w" id="cRp-il-PpZ"/>
