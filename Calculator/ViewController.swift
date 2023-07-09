@@ -30,10 +30,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var eightrButtonView: UIButton!
     @IBOutlet weak var ninerButtonView: UIButton!
     
-    var value0: Double = 0
-    var value1: Double = 0
+    var value0: Float = 0
+    var value1: Float = 0
     var commaIsUsed: Bool = false
-    var count: Int = 1
+    var isNegative: Bool = false
+    var operationButtonPressed: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,50 +67,158 @@ class ViewController: UIViewController {
     //if comma is used, then it can't be used second time
     
     @IBAction func zeroButtonPressed(_ sender: Any) {
-    }
-    @IBAction func oneButtonPressed(_ sender: Any) {
+        clearButtonView.setTitle("AC", for: .normal)
         let digitsCount = resultLabelOutlet.text?.count
         if digitsCount != nil {
-            if digitsCount! <= 16 {
-                clearButtonView.setTitle("AC", for: .normal)
-                if !commaIsUsed {
-                    value1 *= 10
-                    value1 += 1
-                    resultLabelOutlet.text = "\(Int(value1))"
-                } else {
-                    value1 += pow(10, Double(-count))
-                    count += 1
-                    resultLabelOutlet.text = "\(value1)"
-                }
+            if digitsCount! <= 12, digitsCount! > 0{
+                resultLabelOutlet.text?.append("0")
             }
         }
-        
+    }
+    @IBAction func oneButtonPressed(_ sender: Any) {
+        clearButtonView.setTitle("AC", for: .normal)
+        let digitsCount = resultLabelOutlet.text?.count
+        if resultLabelOutlet.text == "0"{
+            resultLabelOutlet.text = ""
+        }
+        if digitsCount != nil {
+            if digitsCount! <= 12 {
+                resultLabelOutlet.text?.append("1")
+            }
+        }
     }
     @IBAction func twoButtonPressed(_ sender: Any) {
+        clearButtonView.setTitle("AC", for: .normal)
+        let digitsCount = resultLabelOutlet.text?.count
+        if resultLabelOutlet.text == "0"{
+            resultLabelOutlet.text = ""
+        }
+        if digitsCount != nil {
+            if digitsCount! <= 12 {
+                resultLabelOutlet.text?.append("2")
+            }
+        }
     }
     @IBAction func threeButtonPressed(_ sender: Any) {
+        clearButtonView.setTitle("AC", for: .normal)
+        let digitsCount = resultLabelOutlet.text?.count
+        if resultLabelOutlet.text == "0"{
+            resultLabelOutlet.text = ""
+        }
+        if digitsCount != nil {
+            if digitsCount! <= 12 {
+                resultLabelOutlet.text?.append("3")
+            }
+        }
     }
     @IBAction func fourButtonPressed(_ sender: Any) {
+        clearButtonView.setTitle("AC", for: .normal)
+        let digitsCount = resultLabelOutlet.text?.count
+        if resultLabelOutlet.text == "0"{
+            resultLabelOutlet.text = ""
+        }
+        if digitsCount != nil {
+            if digitsCount! <= 12 {
+                resultLabelOutlet.text?.append("4")
+            }
+        }
     }
     @IBAction func fiveButtonPressed(_ sender: Any) {
+        clearButtonView.setTitle("AC", for: .normal)
+        let digitsCount = resultLabelOutlet.text?.count
+        if resultLabelOutlet.text == "0"{
+            resultLabelOutlet.text = ""
+        }
+        if digitsCount != nil {
+            if digitsCount! <= 12 {
+                resultLabelOutlet.text?.append("5")
+            }
+        }
     }
     @IBAction func sixButtonPressed(_ sender: Any) {
+        clearButtonView.setTitle("AC", for: .normal)
+        let digitsCount = resultLabelOutlet.text?.count
+        if resultLabelOutlet.text == "0"{
+            resultLabelOutlet.text = ""
+        }
+        if digitsCount != nil {
+            if digitsCount! <= 12 {
+                resultLabelOutlet.text?.append("6")
+            }
+        }
     }
     @IBAction func sevenButtonPressed(_ sender: Any) {
+        clearButtonView.setTitle("AC", for: .normal)
+        let digitsCount = resultLabelOutlet.text?.count
+        if resultLabelOutlet.text == "0"{
+            resultLabelOutlet.text = ""
+        }
+        if digitsCount != nil {
+            if digitsCount! <= 12 {
+                resultLabelOutlet.text?.append("7")
+            }
+        }
     }
     @IBAction func eightButtonPressed(_ sender: Any) {
+        clearButtonView.setTitle("AC", for: .normal)
+        let digitsCount = resultLabelOutlet.text?.count
+        if resultLabelOutlet.text == "0"{
+            resultLabelOutlet.text = ""
+        }
+        if digitsCount != nil {
+            if digitsCount! <= 12 {
+                resultLabelOutlet.text?.append("8")
+            }
+        }
     }
     @IBAction func nineButtonPressed(_ sender: Any) {
+        clearButtonView.setTitle("AC", for: .normal)
+        let digitsCount = resultLabelOutlet.text?.count
+        if resultLabelOutlet.text == "0"{
+            resultLabelOutlet.text = ""
+        }
+        if digitsCount != nil {
+            if digitsCount! <= 12 {
+                resultLabelOutlet.text?.append("9")
+            }
+        }
     }
     @IBAction func commaButtonPressed(_ sender: Any) {
+        clearButtonView.setTitle("AC", for: .normal)
+        let digitsCount = resultLabelOutlet.text?.count
+        if resultLabelOutlet.text == "0"{
+            resultLabelOutlet.text = ""
+        }
         if !commaIsUsed {
+            if digitsCount == 0 {
+                resultLabelOutlet.text?.append("0.")
+            } else{
+                resultLabelOutlet.text?.append(".")
+                }
             commaIsUsed = true
-            resultLabelOutlet.text = "\(Int(value1))."
         }
     }
     @IBAction func clearButtonPressed(_ sender: Any) {
+        value0 = 0
+        value1 = 0
+        commaIsUsed = false
+        clearButtonView.setTitle("C", for: .normal)
+        resultLabelOutlet.text = "0"
     }
     @IBAction func oppositeButtonPressed(_ sender: Any) {
+        if isNegative{
+            if var labelString = resultLabelOutlet.text {
+                labelString = String(labelString.dropFirst())
+                resultLabelOutlet.text = labelString
+            }
+            isNegative = !isNegative
+        } else {
+            if var labelString = resultLabelOutlet.text {
+                labelString = "-" + labelString
+                resultLabelOutlet.text = labelString
+            }
+            isNegative = !isNegative
+        }
     }
     @IBAction func percentageButtonPressed(_ sender: Any) {
     }
