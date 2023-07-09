@@ -31,9 +31,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var ninerButtonView: UIButton!
     
     var value0: Double = 0
-    var value1: Double = 1
-    var comma0: Bool = false
-    var comma1: Bool = false
+    var value1: Double = 0
+    var commaIsUsed: Bool = false
+    var count: Int = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,12 +59,31 @@ class ViewController: UIViewController {
         resultLabelOutlet.text =  ""
     }
     
+    //Max digits in the number = 16 (including floating point)
+    //value is usually increased by function *= 10 and += buttonValue
+    //if the comma is used, then the number is increased by buttonValue power -(count)
+    //count will be the number of digits after floating point
+    //if comma is used, then it can't be used second time
+    
     @IBAction func zeroButtonPressed(_ sender: Any) {
     }
     @IBAction func oneButtonPressed(_ sender: Any) {
-        value0 *= 10
-        value0 += 1
-        resultLabelOutlet.text = "\(Int(value0))"
+        let digitsCount = resultLabelOutlet.text?.count
+        if digitsCount != nil {
+            if digitsCount! <= 16 {
+                clearButtonView.setTitle("AC", for: .normal)
+                if !commaIsUsed {
+                    value1 *= 10
+                    value1 += 1
+                    resultLabelOutlet.text = "\(Int(value1))"
+                } else {
+                    value1 += pow(10, Double(-count))
+                    count += 1
+                    resultLabelOutlet.text = "\(value1)"
+                }
+            }
+        }
+        
     }
     @IBAction func twoButtonPressed(_ sender: Any) {
     }
@@ -83,6 +102,10 @@ class ViewController: UIViewController {
     @IBAction func nineButtonPressed(_ sender: Any) {
     }
     @IBAction func commaButtonPressed(_ sender: Any) {
+        if !commaIsUsed {
+            commaIsUsed = true
+            resultLabelOutlet.text = "\(Int(value1))."
+        }
     }
     @IBAction func clearButtonPressed(_ sender: Any) {
     }
