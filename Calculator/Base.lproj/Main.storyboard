@@ -113,7 +113,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OCl-ac-tmm">
-                                <rect key="frame" x="20" y="610" width="160" height="160"/>
+                                <rect key="frame" x="438" y="610" width="160" height="160"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.83137255909999996" green="0.83137255909999996" blue="0.82352948189999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="100"/>
@@ -124,7 +124,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tvR-4T-YEQ">
-                                <rect key="frame" x="438" y="610" width="160" height="160"/>
+                                <rect key="frame" x="20" y="609" width="160" height="160"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.83137255909999996" green="0.83137255909999996" blue="0.82352948189999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="100"/>
@@ -157,24 +157,13 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fju-wo-a2o">
-                                <rect key="frame" x="20" y="809" width="160" height="160"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.83137255909999996" green="0.83137255909999996" blue="0.82352948189999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="100"/>
-                                <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="3">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3vA-9n-uTo">
                                 <rect key="frame" x="438" y="809" width="160" height="160"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.83137255909999996" green="0.83137255909999996" blue="0.82352948189999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="100"/>
                                 <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="1">
+                                <state key="normal" title="3">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
@@ -229,10 +218,43 @@
                                 <color key="textColor" red="0.83137255909999996" green="0.83137255909999996" blue="0.82352948189999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3vA-9n-uTo">
+                                <rect key="frame" x="20" y="809" width="160" height="160"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.83137255909999996" green="0.83137255909999996" blue="0.82352948189999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="100"/>
+                                <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="1">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
+                    <connections>
+                        <outlet property="clearButtonView" destination="Dnq-lN-M0s" id="X9E-JD-oDU"/>
+                        <outlet property="commarButtonView" destination="qBQ-Sg-WeN" id="dmC-rY-bLh"/>
+                        <outlet property="divisionrButtonView" destination="YJw-H4-76Y" id="qhH-Hr-CDM"/>
+                        <outlet property="eightrButtonView" destination="qef-Xd-Z3J" id="dJ4-zJ-Xdp"/>
+                        <outlet property="equalrButtonView" destination="4Uv-Pv-7ls" id="9QX-Hc-2fV"/>
+                        <outlet property="fiverButtonView" destination="ehc-ho-gxw" id="eMa-2u-1Zr"/>
+                        <outlet property="fourrButtonView" destination="tvR-4T-YEQ" id="53F-jg-JrX"/>
+                        <outlet property="minusrButtonView" destination="7hH-3c-Y8U" id="eDa-JI-OCO"/>
+                        <outlet property="multiplicationrButtonView" destination="Xbb-ld-DZG" id="4Gm-wZ-f1N"/>
+                        <outlet property="ninerButtonView" destination="DRE-wr-fpz" id="Qhd-ua-kAD"/>
+                        <outlet property="onerButtonView" destination="3vA-9n-uTo" id="JYn-1h-lzH"/>
+                        <outlet property="percentagerButtonView" destination="pYl-hn-68I" id="bnV-mw-haU"/>
+                        <outlet property="plusMinusrButtonView" destination="z64-zi-4Gh" id="Xec-qY-s5b"/>
+                        <outlet property="plusrButtonView" destination="7lv-6a-kDF" id="RWK-wX-Bgd"/>
+                        <outlet property="resultLabelOutlet" destination="VhU-fM-2Lc" id="Vfr-hx-Pk1"/>
+                        <outlet property="sevenrButtonView" destination="d6n-K6-i6i" id="yYq-iP-h9Y"/>
+                        <outlet property="sixrButtonView" destination="OCl-ac-tmm" id="SVI-Uf-qvZ"/>
+                        <outlet property="threerButtonView" destination="Fju-wo-a2o" id="lcT-Q4-C5o"/>
+                        <outlet property="tworButtonView" destination="SBL-En-7kP" id="aX3-Wz-BHt"/>
+                        <outlet property="zerorButtonView" destination="Vfw-ax-Q6w" id="cRp-il-PpZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
