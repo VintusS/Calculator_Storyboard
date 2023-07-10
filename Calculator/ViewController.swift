@@ -88,6 +88,7 @@ class ViewController: UIViewController {
             multiplicationrButtonView.setTitleColor(tempColor, for: .normal)
             multiplicationIsPressed = false
         }
+        commaIsUsed = false
     }
     
     //Max digits in the number = 12 (including floating point)
