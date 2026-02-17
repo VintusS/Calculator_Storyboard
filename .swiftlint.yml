@@ -1,0 +1,29 @@
+included:
+  - Sources
+  - Tests
+
+excluded:
+  - Pods
+  - Carthage
+  - .build
+
+opt_in_rules:
+  - empty_count
+  - force_unwrapping
+  - implicitly_unwrapped_optional
+  - redundant_nil_coalescing
+
+line_length:
+  warning: 120
+  error: 160
+
+identifier_name:
+  min_length: 2
+  excluded:
+    - id
+    - x
+    - y
+
+trailing_whitespace:
+  ignores_empty_lines: true
+
