@@ -25,5 +25,5 @@ identifier_name:
     - y
 
 trailing_whitespace:
-  ignores_empty_lines: true
+  ignores_empty_lines: false
 

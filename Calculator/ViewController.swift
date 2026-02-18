@@ -93,154 +93,24 @@ class ViewController: UIViewController {
     
     //Max digits in the number = 12 (including floating point)
     
+    @IBAction func digitPressed(_ sender: UIButton) {
+        guard let digit = sender.currentTitle else { return }
+        clearButtonView.setTitle("C", for: .normal)
+        let digitsCount = resultLabelOutlet.text?.count
+        
+        if resultLabelOutlet.text == "0" {
+            resultLabelOutlet.text = ""
+        }
+        
+        if digitsCount != nil && digitsCount! <= 12 {
+            resultLabelOutlet.text?.append(digit)
+        }
+        
+        if let value = resultLabelOutlet.text {
+            value1 = (value as NSString).floatValue
+        }
+    }
     
-    @IBAction func zeroButtonPressed(_ sender: Any) {
-        clearButtonView.setTitle("C", for: .normal)
-        let digitsCount = resultLabelOutlet.text?.count
-        if digitsCount != nil {
-            if digitsCount! <= 12, digitsCount! > 0{
-                resultLabelOutlet.text?.append("0")
-            }
-        }
-        if let value = resultLabelOutlet.text {
-            value1 = (value as NSString).floatValue
-        }
-    }
-    @IBAction func oneButtonPressed(_ sender: Any) {
-        clearButtonView.setTitle("C", for: .normal)
-        let digitsCount = resultLabelOutlet.text?.count
-        if resultLabelOutlet.text == "0"{
-            resultLabelOutlet.text = ""
-        }
-        if digitsCount != nil {
-            if digitsCount! <= 12 {
-                resultLabelOutlet.text?.append("1")
-            }
-        }
-        if let value = resultLabelOutlet.text {
-            value1 = (value as NSString).floatValue
-        }
-    }
-    @IBAction func twoButtonPressed(_ sender: Any) {
-        clearButtonView.setTitle("C", for: .normal)
-        let digitsCount = resultLabelOutlet.text?.count
-        if resultLabelOutlet.text == "0"{
-            resultLabelOutlet.text = ""
-        }
-        if digitsCount != nil {
-            if digitsCount! <= 12 {
-                resultLabelOutlet.text?.append("2")
-            }
-        }
-        if let value = resultLabelOutlet.text {
-            value1 = (value as NSString).floatValue
-        }
-    }
-    @IBAction func threeButtonPressed(_ sender: Any) {
-        clearButtonView.setTitle("C", for: .normal)
-        let digitsCount = resultLabelOutlet.text?.count
-        if resultLabelOutlet.text == "0"{
-            resultLabelOutlet.text = ""
-        }
-        if digitsCount != nil {
-            if digitsCount! <= 12 {
-                resultLabelOutlet.text?.append("3")
-            }
-        }
-        if let value = resultLabelOutlet.text {
-            value1 = (value as NSString).floatValue
-        }
-    }
-    @IBAction func fourButtonPressed(_ sender: Any) {
-        clearButtonView.setTitle("C", for: .normal)
-        let digitsCount = resultLabelOutlet.text?.count
-        if resultLabelOutlet.text == "0"{
-            resultLabelOutlet.text = ""
-        }
-        if digitsCount != nil {
-            if digitsCount! <= 12 {
-                resultLabelOutlet.text?.append("4")
-            }
-        }
-        if let value = resultLabelOutlet.text {
-            value1 = (value as NSString).floatValue
-        }
-    }
-    @IBAction func fiveButtonPressed(_ sender: Any) {
-        clearButtonView.setTitle("C", for: .normal)
-        let digitsCount = resultLabelOutlet.text?.count
-        if resultLabelOutlet.text == "0"{
-            resultLabelOutlet.text = ""
-        }
-        if digitsCount != nil {
-            if digitsCount! <= 12 {
-                resultLabelOutlet.text?.append("5")
-            }
-        }
-        if let value = resultLabelOutlet.text {
-            value1 = (value as NSString).floatValue
-        }
-    }
-    @IBAction func sixButtonPressed(_ sender: Any) {
-        clearButtonView.setTitle("C", for: .normal)
-        let digitsCount = resultLabelOutlet.text?.count
-        if resultLabelOutlet.text == "0"{
-            resultLabelOutlet.text = ""
-        }
-        if digitsCount != nil {
-            if digitsCount! <= 12 {
-                resultLabelOutlet.text?.append("6")
-            }
-        }
-        if let value = resultLabelOutlet.text {
-            value1 = (value as NSString).floatValue
-        }
-    }
-    @IBAction func sevenButtonPressed(_ sender: Any) {
-        clearButtonView.setTitle("C", for: .normal)
-        let digitsCount = resultLabelOutlet.text?.count
-        if resultLabelOutlet.text == "0"{
-            resultLabelOutlet.text = ""
-        }
-        if digitsCount != nil {
-            if digitsCount! <= 12 {
-                resultLabelOutlet.text?.append("7")
-            }
-        }
-        if let value = resultLabelOutlet.text {
-            value1 = (value as NSString).floatValue
-        }
-    }
-    @IBAction func eightButtonPressed(_ sender: Any) {
-        clearButtonView.setTitle("C", for: .normal)
-        let digitsCount = resultLabelOutlet.text?.count
-        if resultLabelOutlet.text == "0"{
-            resultLabelOutlet.text = ""
-        }
-        if digitsCount != nil {
-            if digitsCount! <= 12 {
-                resultLabelOutlet.text?.append("8")
-            }
-        }
-        if let value = resultLabelOutlet.text {
-            value1 = (value as NSString).floatValue
-        }
-    }
-    @IBAction func nineButtonPressed(_ sender: Any) {
-        clearButtonView.setTitle("C", for: .normal)
-        let digitsCount = resultLabelOutlet.text?.count
-        if resultLabelOutlet.text == "0"{
-            resultLabelOutlet.text = ""
-        }
-        if digitsCount != nil {
-            if digitsCount! <= 12 {
-                resultLabelOutlet.text?.append("9")
-            }
-        }
-        if let value = resultLabelOutlet.text {
-            value1 = (value as NSString).floatValue
-        }
-    }
     @IBAction func commaButtonPressed(_ sender: Any) {
         if let value = resultLabelOutlet.text {
             value1 = (value as NSString).floatValue
