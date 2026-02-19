@@ -21,7 +21,9 @@ struct CalculatorEngine {
     private var storedValue: Double = 0
     private var pendingOperation: Operation = .none
     private var hasStoredValue = false
-
+    private var lastInput: Double = 0
+    private var lastOperation: Operation = .none
+    
     mutating func inputOperation(_ operation: Operation, value: Double) {
         if hasStoredValue {
             storedValue = perform(pendingOperation, val0: storedValue, val1: value)
@@ -34,7 +36,20 @@ struct CalculatorEngine {
     }
 
     mutating func calculateResult(with value: Double) -> Double {
-        let result = perform(pendingOperation, val0: storedValue, val1: value)
+        let inputValue: Double
+        let operationToPerform: Operation
+
+        if pendingOperation != .none {
+            inputValue = value
+            operationToPerform = pendingOperation
+            lastInput = value
+            lastOperation = pendingOperation
+        } else {
+            inputValue = lastInput
+            operationToPerform = lastOperation
+        }
+
+        let result = perform(operationToPerform, val0: storedValue, val1: inputValue)
         storedValue = result
         pendingOperation = .none
         hasStoredValue = true
@@ -47,7 +62,7 @@ struct CalculatorEngine {
             case .subtract: return val0 - val1
             case .multiply: return val0 * val1
             case .divide: return val1 == 0 ? val0 : val0 / val1
-            case .none: return 0
+            case .none: return val0
         }
     }
 
@@ -55,5 +70,7 @@ struct CalculatorEngine {
         storedValue = 0
         pendingOperation = .none
         hasStoredValue = false
+        lastInput = 0
+        lastOperation = .none
     }
 }
