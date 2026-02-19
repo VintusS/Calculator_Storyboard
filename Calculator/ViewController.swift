@@ -33,11 +33,12 @@ class ViewController: UIViewController {
     var value0: Float = 0
     var value1: Float = 0
     var commaIsUsed: Bool = false
-    var divisionIsPressed: Bool = false
-    var multiplicationIsPressed: Bool = false
-    var subtractionIsPressed: Bool = false
-    var additionIsPressed: Bool = false
-    var operationCount: Int = 0
+//    var divisionIsPressed: Bool = false
+//    var multiplicationIsPressed: Bool = false
+//    var subtractionIsPressed: Bool = false
+//    var additionIsPressed: Bool = false
+    
+    var currentOperation: Operation = .none
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,29 +65,29 @@ class ViewController: UIViewController {
     }
     
     func stopAllModificationButtons(){
-        if subtractionIsPressed{
+        if currentOperation == .subtract{
             let tempColor = minusrButtonView.backgroundColor
             minusrButtonView.backgroundColor = minusrButtonView.titleLabel?.textColor
             minusrButtonView.setTitleColor(tempColor, for: .normal)
-            subtractionIsPressed = false
+            currentOperation = .none
         }
-        if additionIsPressed{
+        if currentOperation == .add{
             let tempColor = plusrButtonView.backgroundColor
             plusrButtonView.backgroundColor = plusrButtonView.titleLabel?.textColor
             plusrButtonView.setTitleColor(tempColor, for: .normal)
-            additionIsPressed = false
+            currentOperation = .none
         }
-        if divisionIsPressed{
+        if currentOperation == .divide{
             let tempColor = divisionrButtonView.backgroundColor
             divisionrButtonView.backgroundColor = divisionrButtonView.titleLabel?.textColor
             divisionrButtonView.setTitleColor(tempColor, for: .normal)
-            divisionIsPressed = false
+            currentOperation = .none
         }
-        if multiplicationIsPressed{
+        if currentOperation == .multiply{
             let tempColor = multiplicationrButtonView.backgroundColor
             multiplicationrButtonView.backgroundColor = multiplicationrButtonView.titleLabel?.textColor
             multiplicationrButtonView.setTitleColor(tempColor, for: .normal)
-            multiplicationIsPressed = false
+            currentOperation = .none
         }
         commaIsUsed = false
     }
@@ -136,7 +137,6 @@ class ViewController: UIViewController {
         clearButtonView.setTitle("AC", for: .normal)
         resultLabelOutlet.text = "0"
         stopAllModificationButtons()
-        operationCount = 0
         
     }
     @IBAction func oppositeButtonPressed(_ sender: Any) {
@@ -163,14 +163,13 @@ class ViewController: UIViewController {
         let tempColor = divisionrButtonView.backgroundColor
         divisionrButtonView.backgroundColor = divisionrButtonView.titleLabel?.textColor
         divisionrButtonView.setTitleColor(tempColor, for: .normal)
-        if !subtractionIsPressed {
+        if currentOperation != .subtract {
             if let value = resultLabelOutlet.text {
                 value1 = (value as NSString).floatValue
             }
             resultLabelOutlet.text = ""
-            operationCount += 1
         }
-        divisionIsPressed = true
+        currentOperation = .divide
         value0 = value1
         value1 = 0
     }
@@ -179,14 +178,13 @@ class ViewController: UIViewController {
         let tempColor = multiplicationrButtonView.backgroundColor
         multiplicationrButtonView.backgroundColor = multiplicationrButtonView.titleLabel?.textColor
         multiplicationrButtonView.setTitleColor(tempColor, for: .normal)
-        if !multiplicationIsPressed {
+        if currentOperation != .divide {
             if let value = resultLabelOutlet.text {
                 value1 = (value as NSString).floatValue
             }
             resultLabelOutlet.text = ""
-            operationCount += 1
         }
-        multiplicationIsPressed = true
+        currentOperation = .multiply
         value0 = value1
         value1 = 0
     }
@@ -195,14 +193,13 @@ class ViewController: UIViewController {
         let tempColor = minusrButtonView.backgroundColor
         minusrButtonView.backgroundColor = minusrButtonView.titleLabel?.textColor
         minusrButtonView.setTitleColor(tempColor, for: .normal)
-        if !subtractionIsPressed {
+        if currentOperation != .subtract {
             if let value = resultLabelOutlet.text {
                 value1 = (value as NSString).floatValue
             }
             resultLabelOutlet.text = ""
-            operationCount += 1
         }
-        subtractionIsPressed = true
+        currentOperation = .subtract
         value0 = value1
         value1 = 0
     }
@@ -211,27 +208,40 @@ class ViewController: UIViewController {
         let tempColor = plusrButtonView.backgroundColor
         plusrButtonView.backgroundColor = plusrButtonView.titleLabel?.textColor
         plusrButtonView.setTitleColor(tempColor, for: .normal)
-        if !additionIsPressed {
+        if currentOperation != .add {
             if let value = resultLabelOutlet.text {
                 value1 = (value as NSString).floatValue
             }
             resultLabelOutlet.text = ""
-            operationCount += 1
         }
-        additionIsPressed = true
+        currentOperation = .add
         value0 = value1
         value1 = 0
     }
     @IBAction func equalButtonPressed(_ sender: Any) {
-        if additionIsPressed {
+//        if additionIsPressed {
+//            value0 += value1
+//        } else if subtractionIsPressed {
+//            value0 -= value1
+//        } else if divisionIsPressed {
+//            value0 /= value1
+//        } else if multiplicationIsPressed {
+//            value0 *= value1
+//        }
+        
+        switch currentOperation {
+            case .add:
             value0 += value1
-        } else if subtractionIsPressed {
-            value0 -= value1
-        } else if divisionIsPressed {
-            value0 /= value1
-        } else if multiplicationIsPressed {
-            value0 *= value1
+            case .subtract:
+                value0 -= value1
+            case .divide:
+                value0 /= value1
+            case .multiply:
+                value0 *= value1
+            case .none:
+            break
         }
+        
         value1 = 0
         stopAllModificationButtons()
         if Float(Int(value0)) == value0 {
@@ -242,3 +252,10 @@ class ViewController: UIViewController {
     }
 }
 
+enum Operation {
+    case none
+    case add
+    case subtract
+    case multiply
+    case divide
+}
