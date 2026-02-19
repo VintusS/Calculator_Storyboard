@@ -30,10 +30,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var eightrButtonView: UIButton!
     @IBOutlet weak var ninerButtonView: UIButton!
     
-    var value0: Float = 0
-    var value1: Float = 0
-    var commaIsUsed: Bool = false
-    var currentOperation: Operation = .none
+//    var value0: Float = 0
+//    var value1: Float = 0
+    private var commaIsUsed: Bool = false
+    private var isTypingNumber = false
+//    var currentOperation: Operation = .none
     private let calculatorEngine = CalculatorEngine()
     
     override func viewDidLoad() {
@@ -61,30 +62,39 @@ class ViewController: UIViewController {
     }
     
     func stopAllModificationButtons(){
-        if currentOperation == .subtract{
-            let tempColor = minusrButtonView.backgroundColor
-            minusrButtonView.backgroundColor = minusrButtonView.titleLabel?.textColor
-            minusrButtonView.setTitleColor(tempColor, for: .normal)
-            currentOperation = .none
-        }
-        if currentOperation == .add{
-            let tempColor = plusrButtonView.backgroundColor
-            plusrButtonView.backgroundColor = plusrButtonView.titleLabel?.textColor
-            plusrButtonView.setTitleColor(tempColor, for: .normal)
-            currentOperation = .none
-        }
-        if currentOperation == .divide{
-            let tempColor = divisionrButtonView.backgroundColor
-            divisionrButtonView.backgroundColor = divisionrButtonView.titleLabel?.textColor
-            divisionrButtonView.setTitleColor(tempColor, for: .normal)
-            currentOperation = .none
-        }
-        if currentOperation == .multiply{
-            let tempColor = multiplicationrButtonView.backgroundColor
-            multiplicationrButtonView.backgroundColor = multiplicationrButtonView.titleLabel?.textColor
-            multiplicationrButtonView.setTitleColor(tempColor, for: .normal)
-            currentOperation = .none
-        }
+//        if currentOperation == .subtract{
+//            let tempColor = minusrButtonView.backgroundColor
+//            minusrButtonView.backgroundColor = minusrButtonView.titleLabel?.textColor
+//            minusrButtonView.setTitleColor(tempColor, for: .normal)
+//            currentOperation = .none
+//        }
+//        if currentOperation == .add{
+//            let tempColor = plusrButtonView.backgroundColor
+//            plusrButtonView.backgroundColor = plusrButtonView.titleLabel?.textColor
+//            plusrButtonView.setTitleColor(tempColor, for: .normal)
+//            currentOperation = .none
+//        }
+//        if currentOperation == .divide{
+//            let tempColor = divisionrButtonView.backgroundColor
+//            divisionrButtonView.backgroundColor = divisionrButtonView.titleLabel?.textColor
+//            divisionrButtonView.setTitleColor(tempColor, for: .normal)
+//            currentOperation = .none
+//        }
+//        if currentOperation == .multiply{
+//            let tempColor = multiplicationrButtonView.backgroundColor
+//            multiplicationrButtonView.backgroundColor = multiplicationrButtonView.titleLabel?.textColor
+//            multiplicationrButtonView.setTitleColor(tempColor, for: .normal)
+//            currentOperation = .none
+//        }
+        commaIsUsed = false
+    }
+    
+    func operatorPressed(_ operation: Operation) {
+        guard let text = resultLabelOutlet.text,
+              let value = Double(text) else { return }
+
+        calculatorEngine.inputOperation(operation, value: value)
+        isTypingNumber = false
         commaIsUsed = false
     }
     
@@ -93,25 +103,35 @@ class ViewController: UIViewController {
     @IBAction func digitPressed(_ sender: UIButton) {
         guard let digit = sender.currentTitle else { return }
         clearButtonView.setTitle("C", for: .normal)
-        let digitsCount = resultLabelOutlet.text?.count
         
-        if resultLabelOutlet.text == "0" {
-            resultLabelOutlet.text = ""
+        if !isTypingNumber {
+            resultLabelOutlet.text = digit
+            isTypingNumber = true
+        } else {
+            if let count = resultLabelOutlet.text?.count, count < 12 {
+                resultLabelOutlet.text?.append(digit)
+            }
         }
         
-        if digitsCount != nil && digitsCount! <= 12 {
-            resultLabelOutlet.text?.append(digit)
-        }
+//        let digitsCount = resultLabelOutlet.text?.count
+//        
+//        if resultLabelOutlet.text == "0" {
+//            resultLabelOutlet.text = ""
+//        }
+//        
+//        if digitsCount != nil && digitsCount! <= 12 {
+//            resultLabelOutlet.text?.append(digit)
+//        }
         
-        if let value = resultLabelOutlet.text {
-            value1 = Float(value) ?? 0
-        }
+//        if let value = resultLabelOutlet.text {
+//            value1 = Float(value) ?? 0
+//        }
     }
     
     @IBAction func commaButtonPressed(_ sender: Any) {
-        if let value = resultLabelOutlet.text {
-            value1 = (value as NSString).floatValue
-        }
+//        if let value = resultLabelOutlet.text {
+//            value1 = (value as NSString).floatValue
+//        }
         clearButtonView.setTitle("C", for: .normal)
         let digitsCount = resultLabelOutlet.text?.count
         if resultLabelOutlet.text == "0"{
@@ -127,8 +147,9 @@ class ViewController: UIViewController {
         }
     }
     @IBAction func clearButtonPressed(_ sender: Any) {
-        value0 = 0
-        value1 = 0
+//        value0 = 0
+//        value1 = 0
+        calculatorEngine.reset()
         commaIsUsed = false
         clearButtonView.setTitle("AC", for: .normal)
         resultLabelOutlet.text = "0"
@@ -144,104 +165,94 @@ class ViewController: UIViewController {
             } else {
                 resultLabelOutlet.text = "\(floatValue)"
             }
-            value1 = floatValue
+//            value1 = floatValue
         }
     }
     @IBAction func percentageButtonPressed(_ sender: Any) {
-        if let value = resultLabelOutlet.text {
-            value1 = (value as NSString).floatValue
-            value1 /= 100
-            resultLabelOutlet.text = "\(value1)"
-        }
-    }
-    @IBAction func divisionButtonPressed(_ sender: Any) {
-        stopAllModificationButtons()
-        let tempColor = divisionrButtonView.backgroundColor
-        divisionrButtonView.backgroundColor = divisionrButtonView.titleLabel?.textColor
-        divisionrButtonView.setTitleColor(tempColor, for: .normal)
-        if currentOperation != .subtract {
-            if let value = resultLabelOutlet.text {
-                value1 = (value as NSString).floatValue
-            }
-            resultLabelOutlet.text = ""
-        }
-        currentOperation = .divide
-        value0 = value1
-        value1 = 0
-    }
-    @IBAction func multiplicationButtonPressed(_ sender: Any) {
-        stopAllModificationButtons()
-        let tempColor = multiplicationrButtonView.backgroundColor
-        multiplicationrButtonView.backgroundColor = multiplicationrButtonView.titleLabel?.textColor
-        multiplicationrButtonView.setTitleColor(tempColor, for: .normal)
-        if currentOperation != .divide {
-            if let value = resultLabelOutlet.text {
-                value1 = (value as NSString).floatValue
-            }
-            resultLabelOutlet.text = ""
-        }
-        currentOperation = .multiply
-        value0 = value1
-        value1 = 0
-    }
-    @IBAction func minusButtonPressed(_ sender: Any) {
-        stopAllModificationButtons()
-        let tempColor = minusrButtonView.backgroundColor
-        minusrButtonView.backgroundColor = minusrButtonView.titleLabel?.textColor
-        minusrButtonView.setTitleColor(tempColor, for: .normal)
-        if currentOperation != .subtract {
-            if let value = resultLabelOutlet.text {
-                value1 = (value as NSString).floatValue
-            }
-            resultLabelOutlet.text = ""
-        }
-        currentOperation = .subtract
-        value0 = value1
-        value1 = 0
-    }
-    @IBAction func plusButtonPressed(_ sender: Any) {
-        stopAllModificationButtons()
-        
-        let tempColor = plusrButtonView.backgroundColor
-        plusrButtonView.backgroundColor = plusrButtonView.titleLabel?.textColor
-        plusrButtonView.setTitleColor(tempColor, for: .normal)
-        
         if let text = resultLabelOutlet.text,
-           let value = Double(text) {
-
-            calculatorEngine.inputOperation(.add, value: value)
+           let value = Double(text){
+//            value1 = (value as NSString).floatValue
+            let result = value / 100
+            resultLabelOutlet.text = "\(result)"
         }
-
-        resultLabelOutlet.text = ""
-
     }
-    @IBAction func equalButtonPressed(_ sender: Any) {
-//        switch currentOperation {
-//            case .add:
-//            value0 += value1
-//            case .subtract:
-//                value0 -= value1
-//            case .divide:
-//                value0 /= value1
-//            case .multiply:
-//                value0 *= value1
-//            case .none:
-//            break
+//    @IBAction func divisionButtonPressed(_ sender: Any) {
+//        stopAllModificationButtons()
+//        let tempColor = divisionrButtonView.backgroundColor
+//        divisionrButtonView.backgroundColor = divisionrButtonView.titleLabel?.textColor
+//        divisionrButtonView.setTitleColor(tempColor, for: .normal)
+//        if currentOperation != .subtract {
+//            if let value = resultLabelOutlet.text {
+//                value1 = (value as NSString).floatValue
+//            }
+//            resultLabelOutlet.text = ""
 //        }
+//        currentOperation = .divide
+//        value0 = value1
+//        value1 = 0
+//    }
+//    @IBAction func multiplicationButtonPressed(_ sender: Any) {
+//        stopAllModificationButtons()
+//        let tempColor = multiplicationrButtonView.backgroundColor
+//        multiplicationrButtonView.backgroundColor = multiplicationrButtonView.titleLabel?.textColor
+//        multiplicationrButtonView.setTitleColor(tempColor, for: .normal)
+//        if currentOperation != .divide {
+//            if let value = resultLabelOutlet.text {
+//                value1 = (value as NSString).floatValue
+//            }
+//            resultLabelOutlet.text = ""
+//        }
+//        currentOperation = .multiply
+//        value0 = value1
+//        value1 = 0
+//    }
+//    @IBAction func minusButtonPressed(_ sender: Any) {
+//        stopAllModificationButtons()
+//        let tempColor = minusrButtonView.backgroundColor
+//        minusrButtonView.backgroundColor = minusrButtonView.titleLabel?.textColor
+//        minusrButtonView.setTitleColor(tempColor, for: .normal)
+//        if currentOperation != .subtract {
+//            if let value = resultLabelOutlet.text {
+//                value1 = (value as NSString).floatValue
+//            }
+//            resultLabelOutlet.text = ""
+//        }
+//        currentOperation = .subtract
+//        value0 = value1
+//        value1 = 0
+//    }
+    
+    @IBAction func plusButtonPressed(_ sender: Any) {
+        operatorPressed(.add)
+    }
+    
+    @IBAction func minusButtonPressed(_ sender: Any) {
+        operatorPressed(.subtract)
+    }
+
+    @IBAction func multiplicationButtonPressed(_ sender: Any) {
+        operatorPressed(.multiply)
+    }
+
+    @IBAction func divisionButtonPressed(_ sender: Any) {
+        operatorPressed(.divide)
+    }
+
+    
+    @IBAction func equalButtonPressed(_ sender: Any) {
         if let text = resultLabelOutlet.text,
            let value = Double(text) {
 
             let result = calculatorEngine.calculateResult(with: value)
-            value0 = Float(result)
+
+            if result == floor(result) {
+                resultLabelOutlet.text = "\(Int(result))"
+            } else {
+                resultLabelOutlet.text = "\(result)"
+            }
         }
 
-        
-        value1 = 0
+        isTypingNumber = false
         stopAllModificationButtons()
-        if Float(Int(value0)) == value0 {
-            resultLabelOutlet.text = "\(Int(value0))"
-        } else {
-            resultLabelOutlet.text = "\(value0)"
-        }
     }
 }
