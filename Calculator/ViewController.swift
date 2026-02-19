@@ -107,7 +107,7 @@ class ViewController: UIViewController {
         }
         
         if let value = resultLabelOutlet.text {
-            value1 = (value as NSString).floatValue
+            value1 = Float(value) ?? 0
         }
     }
     
