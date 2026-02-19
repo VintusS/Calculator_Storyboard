@@ -33,11 +33,6 @@ class ViewController: UIViewController {
     var value0: Float = 0
     var value1: Float = 0
     var commaIsUsed: Bool = false
-//    var divisionIsPressed: Bool = false
-//    var multiplicationIsPressed: Bool = false
-//    var subtractionIsPressed: Bool = false
-//    var additionIsPressed: Bool = false
-    
     var currentOperation: Operation = .none
     
     override func viewDidLoad() {
@@ -219,16 +214,6 @@ class ViewController: UIViewController {
         value1 = 0
     }
     @IBAction func equalButtonPressed(_ sender: Any) {
-//        if additionIsPressed {
-//            value0 += value1
-//        } else if subtractionIsPressed {
-//            value0 -= value1
-//        } else if divisionIsPressed {
-//            value0 /= value1
-//        } else if multiplicationIsPressed {
-//            value0 *= value1
-//        }
-        
         switch currentOperation {
             case .add:
             value0 += value1
