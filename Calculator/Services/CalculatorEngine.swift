@@ -16,39 +16,44 @@ enum Operation {
     case divide
 }
 
-class CalculatorEngine {
+struct CalculatorEngine {
 
     private var storedValue: Double = 0
     private var pendingOperation: Operation = .none
+    private var hasStoredValue = false
 
-    func inputOperation(_ operation: Operation, value: Double) {
-        storedValue = value
+    mutating func inputOperation(_ operation: Operation, value: Double) {
+        if hasStoredValue {
+            storedValue = perform(pendingOperation, val0: storedValue, val1: value)
+        } else {
+            storedValue = value
+            hasStoredValue = true
+        }
+        
         pendingOperation = operation
     }
 
-    func calculateResult(with value: Double) -> Double {
-        let result: Double
-
-        switch pendingOperation {
-        case .add:
-            result = storedValue + value
-        case .subtract:
-            result = storedValue - value
-        case .multiply:
-            result = storedValue * value
-        case .divide:
-            result = value == 0 ? storedValue : storedValue / value
-        case .none:
-            result = value
-        }
-
+    mutating func calculateResult(with value: Double) -> Double {
+        let result = perform(pendingOperation, val0: storedValue, val1: value)
         storedValue = result
         pendingOperation = .none
+        hasStoredValue = true
         return result
     }
+    
+    private func perform(_ operation: Operation, val0: Double, val1: Double) -> Double {
+        switch operation {
+            case .add: return val0 + val1
+            case .subtract: return val0 - val1
+            case .multiply: return val0 * val1
+            case .divide: return val1 == 0 ? val0 : val0 / val1
+            case .none: return 0
+        }
+    }
 
-    func reset() {
+    mutating func reset() {
         storedValue = 0
         pendingOperation = .none
+        hasStoredValue = false
     }
 }

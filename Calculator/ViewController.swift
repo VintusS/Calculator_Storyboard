@@ -32,7 +32,7 @@ class ViewController: UIViewController {
     
     private var commaIsUsed: Bool = false
     private var isTypingNumber = false
-    private let calculatorEngine = CalculatorEngine()
+    private var calculatorEngine = CalculatorEngine()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -105,6 +105,7 @@ class ViewController: UIViewController {
     @IBAction func clearButtonPressed(_ sender: Any) {
         calculatorEngine.reset()
         commaIsUsed = false
+        isTypingNumber = false
         clearButtonView.setTitle("AC", for: .normal)
         resultLabelOutlet.text = "0"
         stopAllModificationButtons()
