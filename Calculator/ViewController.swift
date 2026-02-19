@@ -34,6 +34,7 @@ class ViewController: UIViewController {
     var value1: Float = 0
     var commaIsUsed: Bool = false
     var currentOperation: Operation = .none
+    private let calculatorEngine = CalculatorEngine()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -200,32 +201,40 @@ class ViewController: UIViewController {
     }
     @IBAction func plusButtonPressed(_ sender: Any) {
         stopAllModificationButtons()
+        
         let tempColor = plusrButtonView.backgroundColor
         plusrButtonView.backgroundColor = plusrButtonView.titleLabel?.textColor
         plusrButtonView.setTitleColor(tempColor, for: .normal)
-        if currentOperation != .add {
-            if let value = resultLabelOutlet.text {
-                value1 = (value as NSString).floatValue
-            }
-            resultLabelOutlet.text = ""
+        
+        if let text = resultLabelOutlet.text,
+           let value = Double(text) {
+
+            calculatorEngine.inputOperation(.add, value: value)
         }
-        currentOperation = .add
-        value0 = value1
-        value1 = 0
+
+        resultLabelOutlet.text = ""
+
     }
     @IBAction func equalButtonPressed(_ sender: Any) {
-        switch currentOperation {
-            case .add:
-            value0 += value1
-            case .subtract:
-                value0 -= value1
-            case .divide:
-                value0 /= value1
-            case .multiply:
-                value0 *= value1
-            case .none:
-            break
+//        switch currentOperation {
+//            case .add:
+//            value0 += value1
+//            case .subtract:
+//                value0 -= value1
+//            case .divide:
+//                value0 /= value1
+//            case .multiply:
+//                value0 *= value1
+//            case .none:
+//            break
+//        }
+        if let text = resultLabelOutlet.text,
+           let value = Double(text) {
+
+            let result = calculatorEngine.calculateResult(with: value)
+            value0 = Float(result)
         }
+
         
         value1 = 0
         stopAllModificationButtons()
@@ -235,12 +244,4 @@ class ViewController: UIViewController {
             resultLabelOutlet.text = "\(value0)"
         }
     }
-}
-
-enum Operation {
-    case none
-    case add
-    case subtract
-    case multiply
-    case divide
 }

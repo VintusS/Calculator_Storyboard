@@ -8,24 +8,47 @@
 import Foundation
 import UIKit
 
-struct CalculatorEngine {
-    func perform(
-        _ operation: Operation,
-        lhs: Double,
-        rhs: Double
-    ) -> Double {
-        
-        switch operation {
+enum Operation {
+    case none
+    case add
+    case subtract
+    case multiply
+    case divide
+}
+
+class CalculatorEngine {
+
+    private var storedValue: Double = 0
+    private var pendingOperation: Operation = .none
+
+    func inputOperation(_ operation: Operation, value: Double) {
+        storedValue = value
+        pendingOperation = operation
+    }
+
+    func calculateResult(with value: Double) -> Double {
+        let result: Double
+
+        switch pendingOperation {
         case .add:
-            return lhs + rhs
+            result = storedValue + value
         case .subtract:
-            return lhs - rhs
+            result = storedValue - value
         case .multiply:
-            return lhs * rhs
+            result = storedValue * value
         case .divide:
-            return rhs == 0 ? lhs : lhs / rhs
+            result = value == 0 ? storedValue : storedValue / value
         case .none:
-            return rhs
+            result = value
         }
+
+        storedValue = result
+        pendingOperation = .none
+        return result
+    }
+
+    func reset() {
+        storedValue = 0
+        pendingOperation = .none
     }
 }
