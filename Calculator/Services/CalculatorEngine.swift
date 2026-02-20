@@ -28,7 +28,7 @@ struct CalculatorEngine {
     mutating func inputOperation(_ operation: Operation, value: Double) {
         if hasStoredValue && !lastWasEquals {
             storedValue = perform(pendingOperation, val0: storedValue, val1: value)
-        } else if !hasStoredValue {
+        } else {
             storedValue = value
             hasStoredValue = true
         }
