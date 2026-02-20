@@ -76,8 +76,8 @@ class ViewController: UIViewController {
     @IBAction func digitPressed(_ sender: UIButton) {
         guard let digit = sender.currentTitle else { return }
         clearButtonView.setTitle("C", for: .normal)
-        
-        if !isTypingNumber {
+
+        if !isTypingNumber || resultLabelOutlet.text == "0" {
             resultLabelOutlet.text = digit
             isTypingNumber = true
         } else {
@@ -104,11 +104,10 @@ class ViewController: UIViewController {
     }
     @IBAction func clearButtonPressed(_ sender: Any) {
         calculatorEngine.reset()
-        commaIsUsed = false
-        isTypingNumber = false
-        clearButtonView.setTitle("AC", for: .normal)
         resultLabelOutlet.text = "0"
-        stopAllModificationButtons()
+        isTypingNumber = false
+        commaIsUsed = false
+        clearButtonView.setTitle("AC", for: .normal)
         
     }
     @IBAction func oppositeButtonPressed(_ sender: Any) {
