@@ -23,37 +23,40 @@ struct CalculatorEngine {
     private var hasStoredValue = false
     private var lastInput: Double = 0
     private var lastOperation: Operation = .none
+    private var lastWasEquals = false
     
     mutating func inputOperation(_ operation: Operation, value: Double) {
-        if hasStoredValue {
+        if hasStoredValue && !lastWasEquals {
             storedValue = perform(pendingOperation, val0: storedValue, val1: value)
-        } else {
+        } else if !hasStoredValue {
             storedValue = value
             hasStoredValue = true
         }
         
         pendingOperation = operation
+        lastWasEquals = false
     }
 
     mutating func calculateResult(with value: Double) -> Double {
-        let inputValue: Double
-        let operationToPerform: Operation
+       if pendingOperation != .none {
+           lastInput = value
+           lastOperation = pendingOperation
+       }
+       
+       if lastOperation == .none {
+           storedValue = value
+           hasStoredValue = true
+           return value
+       }
 
-        if pendingOperation != .none {
-            inputValue = value
-            operationToPerform = pendingOperation
-            lastInput = value
-            lastOperation = pendingOperation
-        } else {
-            inputValue = lastInput
-            operationToPerform = lastOperation
-        }
-
-        let result = perform(operationToPerform, val0: storedValue, val1: inputValue)
-        storedValue = result
-        pendingOperation = .none
-        hasStoredValue = true
-        return result
+       let result = perform(lastOperation, val0: storedValue, val1: lastInput)
+       
+       storedValue = result
+       pendingOperation = .none
+       hasStoredValue = true
+       lastWasEquals = true
+       
+       return result
     }
     
     private func perform(_ operation: Operation, val0: Double, val1: Double) -> Double {
@@ -72,5 +75,6 @@ struct CalculatorEngine {
         hasStoredValue = false
         lastInput = 0
         lastOperation = .none
+        lastWasEquals = false
     }
 }
