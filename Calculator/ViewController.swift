@@ -10,25 +10,7 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet weak var resultLabelOutlet: UILabel!
-    @IBOutlet weak var clearButtonView: UIButton!
-    @IBOutlet weak var plusMinusrButtonView: UIButton!
-    @IBOutlet weak var percentagerButtonView: UIButton!
-    @IBOutlet weak var divisionrButtonView: UIButton!
-    @IBOutlet weak var multiplicationrButtonView: UIButton!
-    @IBOutlet weak var minusrButtonView: UIButton!
-    @IBOutlet weak var plusrButtonView: UIButton!
-    @IBOutlet weak var equalrButtonView: UIButton!
-    @IBOutlet weak var zerorButtonView: UIButton!
-    @IBOutlet weak var commarButtonView: UIButton!
-    @IBOutlet weak var onerButtonView: UIButton!
-    @IBOutlet weak var tworButtonView: UIButton!
-    @IBOutlet weak var threerButtonView: UIButton!
-    @IBOutlet weak var fourrButtonView: UIButton!
-    @IBOutlet weak var fiverButtonView: UIButton!
-    @IBOutlet weak var sixrButtonView: UIButton!
-    @IBOutlet weak var sevenrButtonView: UIButton!
-    @IBOutlet weak var eightrButtonView: UIButton!
-    @IBOutlet weak var ninerButtonView: UIButton!
+    @IBOutlet var calculatorButtons: [UIButton]!
     
     private var commaIsUsed: Bool = false
     private var isTypingNumber = false
@@ -44,32 +26,14 @@ class ViewController: UIViewController {
         styleButtons()
     }
     
+    private func button(withTag tag: Int) -> UIButton? {
+        calculatorButtons.first { $0.tag == tag }
+    }
+    
     private func styleButtons() {
-        let buttons = [
-            clearButtonView,
-            plusMinusrButtonView,
-            percentagerButtonView,
-            divisionrButtonView,
-            multiplicationrButtonView,
-            minusrButtonView,
-            plusrButtonView,
-            equalrButtonView,
-            zerorButtonView,
-            commarButtonView,
-            onerButtonView,
-            tworButtonView,
-            threerButtonView,
-            fourrButtonView,
-            fiverButtonView,
-            sixrButtonView,
-            sevenrButtonView,
-            eightrButtonView,
-            ninerButtonView
-        ]
-
-        buttons.forEach {
-            $0?.layer.cornerRadius = ($0?.frame.height ?? 0) / 2
-            $0?.clipsToBounds = true
+        calculatorButtons.forEach { button in
+            button.layer.cornerRadius = button.frame.height / 2
+            button.clipsToBounds = true
         }
     }
     
@@ -99,7 +63,7 @@ class ViewController: UIViewController {
     
     @IBAction func digitPressed(_ sender: UIButton) {
         guard let digit = sender.currentTitle else { return }
-        clearButtonView.setTitle("C", for: .normal)
+        button(withTag: 101)?.setTitle("C", for: .normal)
 
         if !isTypingNumber || resultLabelOutlet.text == "0" {
             resultLabelOutlet.text = digit
@@ -112,7 +76,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func commaButtonPressed(_ sender: Any) {
-        clearButtonView.setTitle("C", for: .normal)
+        button(withTag: 101)?.setTitle("C", for: .normal)
         let digitsCount = resultLabelOutlet.text?.count
         if resultLabelOutlet.text == "0"{
             resultLabelOutlet.text = ""
@@ -131,7 +95,7 @@ class ViewController: UIViewController {
         resultLabelOutlet.text = "0"
         isTypingNumber = false
         commaIsUsed = false
-        clearButtonView.setTitle("AC", for: .normal)
+        button(withTag: 101)?.setTitle("AC", for: .normal)
         
     }
     @IBAction func oppositeButtonPressed(_ sender: Any) {
