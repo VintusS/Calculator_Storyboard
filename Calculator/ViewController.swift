@@ -59,43 +59,15 @@ class ViewController: UIViewController {
         commaIsUsed = false
     }
     
-    //Max digits in the number = 12 (including floating point)
-    @IBAction func oppositeButtonPressed(_ sender: Any) {
+    private func handleSign() {
         let value = currentValue() * -1
         setDisplay(value)
     }
-    
-    @IBAction func percentageButtonPressed(_ sender: Any) {
+
+    private func handlePercentage() {
         let value = currentValue() / 100
         setDisplay(value)
         isTypingNumber = false
-    }
-    
-    @IBAction func buttonTapped(_ sender: UIButton) {
-        switch sender.tag {
-            case 0...9:
-                handleDigit(sender)
-            case 100:
-                handleDecimal()
-            case 101:
-                handleClear(sender)
-            case 102:
-                oppositeButtonPressed(sender)
-            case 103:
-                percentageButtonPressed(sender)
-            case 200:
-                operatorPressed(.divide)
-            case 201:
-                operatorPressed(.multiply)
-            case 202:
-                operatorPressed(.subtract)
-            case 203:
-                operatorPressed(.add)
-            case 204:
-                handleEquals()
-            default:
-                break
-        }
     }
     
     private func handleDigit(_ sender: UIButton) {
@@ -136,7 +108,7 @@ class ViewController: UIViewController {
         stopAllModificationButtons()
     }
 
-    private func handleClear(_ sender: UIButton) {
+    private func handleClear() {
         calculatorEngine.reset()
         resultLabelOutlet.text = "0"
         isTypingNumber = false
@@ -144,4 +116,30 @@ class ViewController: UIViewController {
         button(withTag: 101)?.setTitle("AC", for: .normal)
     }
     
+    @IBAction func buttonTapped(_ sender: UIButton) {
+        switch sender.tag {
+            case 0...9:
+                handleDigit(sender)
+            case 100:
+                handleDecimal()
+            case 101:
+                handleClear()
+            case 102:
+                handleSign()
+            case 103:
+                handlePercentage()
+            case 200:
+                operatorPressed(.divide)
+            case 201:
+                operatorPressed(.multiply)
+            case 202:
+                operatorPressed(.subtract)
+            case 203:
+                operatorPressed(.add)
+            case 204:
+                handleEquals()
+            default:
+                break
+        }
+    }
 }
