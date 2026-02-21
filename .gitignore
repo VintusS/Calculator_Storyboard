@@ -1,4 +1,6 @@
 # Xcode user data
-xcuserdata/
 *.xcuserstate
-
+*.xcuserdatad/
+*.xcuserdata/
+*.xccheckout
+*.xcscmblueprint
