@@ -62,9 +62,8 @@
 		4872CF6B2A5A9EAC0044E151 /* Calculator */ = {
 			isa = PBXGroup;
 			children = (
+				6B77C4CD2F49F106008756C1 /* Delegates */,
 				6B77C4CA2F49EFD0008756C1 /* Helpers */,
-				4872CF6C2A5A9EAC0044E151 /* AppDelegate.swift */,
-				4872CF6E2A5A9EAC0044E151 /* SceneDelegate.swift */,
 				6B77C4C52F49ECCC008756C1 /* ViewControllers */,
 				6B8F086E2F47BA8B00903670 /* Services */,
 				4872CF722A5A9EAC0044E151 /* Main.storyboard */,
@@ -89,6 +88,15 @@
 				6B77C4CB2F49EFDB008756C1 /* ButtonExtensions.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		6B77C4CD2F49F106008756C1 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				4872CF6C2A5A9EAC0044E151 /* AppDelegate.swift */,
+				4872CF6E2A5A9EAC0044E151 /* SceneDelegate.swift */,
+			);
+			path = Delegates;
 			sourceTree = "<group>";
 		};
 		6B8F086E2F47BA8B00903670 /* Services */ = {

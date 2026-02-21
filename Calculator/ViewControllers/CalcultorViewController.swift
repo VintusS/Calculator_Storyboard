@@ -116,29 +116,29 @@ class CalculatorViewController: UIViewController {
     }
     
     @IBAction func buttonTapped(_ sender: UIButton) {
-        switch sender.tag {
-            case 0...9:
+        guard let buttonTag = CalculatorButtonTag(rawValue: sender.tag) else { return }
+            
+        switch buttonTag {
+            case .zero, .one, .two, .three, .four, .five, .six, .seven, .eight, .nine:
                 handleDigit(sender)
-            case 100:
+            case .decimal:
                 handleDecimal()
-            case 101:
+            case .clear:
                 handleClear()
-            case 102:
+            case .sign:
                 handleSign()
-            case 103:
+            case .percent:
                 handlePercentage()
-            case 200:
+            case .divide:
                 operatorPressed(.divide)
-            case 201:
+            case .multiply:
                 operatorPressed(.multiply)
-            case 202:
+            case .subtract:
                 operatorPressed(.subtract)
-            case 203:
+            case .add:
                 operatorPressed(.add)
-            case 204:
+            case .equals:
                 handleEquals()
-            default:
-                break
         }
     }
 }

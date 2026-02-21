@@ -13,3 +13,16 @@ extension UIButton {
         self.clipsToBounds = true
     }
 }
+
+enum CalculatorButtonTag: Int {
+    case zero = 0, one, two, three, four, five, six, seven, eight, nine
+    case decimal = 100
+    case clear = 101
+    case sign = 102
+    case percent = 103
+    case divide = 200
+    case multiply = 201
+    case subtract = 202
+    case add = 203
+    case equals = 204
+}
