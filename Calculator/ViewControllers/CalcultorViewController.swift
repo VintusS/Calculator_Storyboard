@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  CalculatorViewController.swift
 //  Calculator
 //
 //  Created by Dragosh on 09.07.2023.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class CalculatorViewController: UIViewController {
     
     @IBOutlet weak var resultLabelOutlet: UILabel!
     @IBOutlet var calculatorButtons: [UIButton]!
@@ -32,8 +32,7 @@ class ViewController: UIViewController {
     
     private func styleButtons() {
         calculatorButtons.forEach { button in
-            button.layer.cornerRadius = button.frame.height / 2
-            button.clipsToBounds = true
+            button.makeCircular()
         }
     }
     
