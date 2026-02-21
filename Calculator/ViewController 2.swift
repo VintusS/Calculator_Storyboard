@@ -60,6 +60,44 @@ class ViewController: UIViewController {
     }
     
     //Max digits in the number = 12 (including floating point)
+    
+    @IBAction func digitPressed(_ sender: UIButton) {
+        guard let digit = sender.currentTitle else { return }
+        button(withTag: 101)?.setTitle("C", for: .normal)
+
+        if !isTypingNumber || resultLabelOutlet.text == "0" {
+            resultLabelOutlet.text = digit
+            isTypingNumber = true
+        } else {
+            if let count = resultLabelOutlet.text?.count, count < 12 {
+                resultLabelOutlet.text?.append(digit)
+            }
+        }
+    }
+    
+    @IBAction func commaButtonPressed(_ sender: Any) {
+        button(withTag: 101)?.setTitle("C", for: .normal)
+        let digitsCount = resultLabelOutlet.text?.count
+        if resultLabelOutlet.text == "0"{
+            resultLabelOutlet.text = ""
+        }
+        if !commaIsUsed {
+            if digitsCount == 0 {
+                resultLabelOutlet.text?.append("0.")
+            } else{
+                resultLabelOutlet.text?.append(".")
+            }
+            commaIsUsed = true
+        }
+    }
+    @IBAction func clearButtonPressed(_ sender: Any) {
+        calculatorEngine.reset()
+        resultLabelOutlet.text = "0"
+        isTypingNumber = false
+        commaIsUsed = false
+        button(withTag: 101)?.setTitle("AC", for: .normal)
+        
+    }
     @IBAction func oppositeButtonPressed(_ sender: Any) {
         if let value = resultLabelOutlet.text {
             var floatValue = (value as NSString).floatValue
@@ -78,76 +116,29 @@ class ViewController: UIViewController {
             resultLabelOutlet.text = "\(result)"
         }
     }
-    
-    @IBAction func buttonTapped(_ sender: UIButton) {
-        switch sender.tag {
-            case 0...9:
-                handleDigit(sender)
-            case 100:
-                handleDecimal()
-            case 101:
-                handleClear(sender)
-            case 102:
-                oppositeButtonPressed(sender)
-            case 103:
-                percentageButtonPressed(sender)
-            case 200:
-                operatorPressed(.divide)
-            case 201:
-                operatorPressed(.multiply)
-            case 202:
-                operatorPressed(.subtract)
-            case 203:
-                operatorPressed(.add)
-            case 204:
-                handleEquals()
-            default:
-                break
-        }
+
+    @IBAction func plusButtonPressed(_ sender: Any) {
+        operatorPressed(.add)
     }
     
-    private func handleDigit(_ sender: UIButton) {
-        guard let digit = sender.currentTitle else { return }
-        button(withTag: 101)?.setTitle("C", for: .normal)
-
-        if !isTypingNumber || resultLabelOutlet.text == "0" {
-            resultLabelOutlet.text = digit
-            isTypingNumber = true
-        } else {
-            if let count = resultLabelOutlet.text?.count, count < 12 {
-                resultLabelOutlet.text?.append(digit)
-            }
-        }
+    @IBAction func minusButtonPressed(_ sender: Any) {
+        operatorPressed(.subtract)
     }
 
-    private func handleDecimal() {
-        button(withTag: 101)?.setTitle("C", for: .normal)
-
-        if !commaIsUsed {
-            if resultLabelOutlet.text?.isEmpty ?? true {
-                resultLabelOutlet.text = "0."
-            } else {
-                resultLabelOutlet.text?.append(".")
-            }
-            commaIsUsed = true
-            isTypingNumber = true
-        }
+    @IBAction func multiplicationButtonPressed(_ sender: Any) {
+        operatorPressed(.multiply)
     }
 
-    private func handleEquals() {
+    @IBAction func divisionButtonPressed(_ sender: Any) {
+        operatorPressed(.divide)
+    }
+
+    
+    @IBAction func equalButtonPressed(_ sender: Any) {
         let result = calculatorEngine.calculateResult(with: currentValue())
         setDisplay(result)
 
         isTypingNumber = false
         stopAllModificationButtons()
     }
-
-    private func handleClear(_ sender: UIButton) {
-        calculatorEngine.reset()
-        resultLabelOutlet.text = "0"
-        isTypingNumber = false
-        commaIsUsed = false
-        button(withTag: 101)?.setTitle("AC", for: .normal)
-    }
-    
 }
