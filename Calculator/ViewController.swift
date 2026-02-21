@@ -38,7 +38,7 @@ class ViewController: UIViewController {
     }
     
     private func currentValue() -> Double {
-        Double(resultLabelOutlet.text ?? "0") ?? 0
+        NumberFormatterService.parse(resultLabelOutlet.text ?? "0") ?? 0
     }
 
     private func setDisplay(_ value: Double) {
@@ -61,22 +61,14 @@ class ViewController: UIViewController {
     
     //Max digits in the number = 12 (including floating point)
     @IBAction func oppositeButtonPressed(_ sender: Any) {
-        if let value = resultLabelOutlet.text {
-            var floatValue = (value as NSString).floatValue
-            floatValue *= -1
-            if Float(Int(floatValue)) == floatValue {
-                resultLabelOutlet.text = "\(Int(floatValue))"
-            } else {
-                resultLabelOutlet.text = "\(floatValue)"
-            }
-        }
+        let value = currentValue() * -1
+        setDisplay(value)
     }
+    
     @IBAction func percentageButtonPressed(_ sender: Any) {
-        if let text = resultLabelOutlet.text,
-           let value = Double(text){
-            let result = value / 100
-            resultLabelOutlet.text = "\(result)"
-        }
+        let value = currentValue() / 100
+        setDisplay(value)
+        isTypingNumber = false
     }
     
     @IBAction func buttonTapped(_ sender: UIButton) {
@@ -110,13 +102,15 @@ class ViewController: UIViewController {
         guard let digit = sender.currentTitle else { return }
         button(withTag: 101)?.setTitle("C", for: .normal)
 
-        if !isTypingNumber || resultLabelOutlet.text == "0" {
+        if isTypingNumber {
+            if resultLabelOutlet.text == "0" {
+                resultLabelOutlet.text = digit
+            } else {
+                resultLabelOutlet.text! += digit
+            }
+        } else {
             resultLabelOutlet.text = digit
             isTypingNumber = true
-        } else {
-            if let count = resultLabelOutlet.text?.count, count < 12 {
-                resultLabelOutlet.text?.append(digit)
-            }
         }
     }
 
@@ -124,13 +118,13 @@ class ViewController: UIViewController {
         button(withTag: 101)?.setTitle("C", for: .normal)
 
         if !commaIsUsed {
-            if resultLabelOutlet.text?.isEmpty ?? true {
-                resultLabelOutlet.text = "0."
-            } else {
+            if isTypingNumber {
                 resultLabelOutlet.text?.append(".")
+            } else {
+                resultLabelOutlet.text = "0."
+                isTypingNumber = true
             }
             commaIsUsed = true
-            isTypingNumber = true
         }
     }
 
