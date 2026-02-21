@@ -9,7 +9,6 @@ import Foundation
 
 struct NumberFormatterService {
 
-<<<<<<< HEAD
     private static let formatter: NumberFormatter = {
         let f = NumberFormatter()
         f.maximumFractionDigits = 8
@@ -18,27 +17,14 @@ struct NumberFormatterService {
         return f
     }()
 
-=======
->>>>>>> main
     static func format(_ value: Double) -> String {
         if value == floor(value) {
             return "\(Int(value))"
         }
-<<<<<<< HEAD
         return formatter.string(from: NSNumber(value: value)) ?? "\(value)"
     }
 
     static func parse(_ string: String) -> Double? {
         return formatter.number(from: string)?.doubleValue
     }
-=======
-
-        let formatter = NumberFormatter()
-        formatter.maximumFractionDigits = 8
-        formatter.minimumFractionDigits = 0
-        formatter.numberStyle = .decimal
-
-        return formatter.string(from: NSNumber(value: value)) ?? "\(value)"
-    }
->>>>>>> main
 }
