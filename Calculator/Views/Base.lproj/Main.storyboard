@@ -35,7 +35,7 @@
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" title="C"/>
                                             <connections>
-                                                <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ac-101-9rE-2P-L8h"/>
+                                                <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EAA-AA-AAA"/>
                                             </connections>
                                             </button>
                                             <button opaque="NO" tag="103" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iQU-7n-t8X">
@@ -48,7 +48,7 @@
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                             <connections>
-                                                <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ac-103-iQU-7n-t8X"/>
+                                                <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GAA-AA-AAA"/>
                                             </connections>
                                             </button>
                                             <button opaque="NO" tag="102" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D8g-54-4Y1">
@@ -61,7 +61,7 @@
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                             <connections>
-                                                <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ac-102-D8g-54-4Y1"/>
+                                                <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FAA-AA-AAA"/>
                                             </connections>
                                             </button>
                                             <button opaque="NO" tag="200" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Ct-gu-T5B">
@@ -74,7 +74,7 @@
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                             <connections>
-                                                <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ac-200-3Ct-gu-T5B"/>
+                                                <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IAA-AA-AAA"/>
                                             </connections>
                                             </button>
                                         </subviews>
@@ -92,7 +92,7 @@
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                             <connections>
-                                                <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ac-7-nIT-8W-QCY"/>
+                                                <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RAA-AA-AAA"/>
                                             </connections>
                                             </button>
                                             <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mxL-iS-OeL">
@@ -105,7 +105,7 @@
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                             <connections>
-                                                <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ac-8-mxL-iS-OeL"/>
+                                                <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SAA-AA-AAA"/>
                                             </connections>
                                             </button>
                                             <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7gK-fJ-KTW">
@@ -118,7 +118,7 @@
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                             <connections>
-                                                <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ac-9-7gK-fJ-KTW"/>
+                                                <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TAA-AA-AAA"/>
                                             </connections>
                                             </button>
                                             <button opaque="NO" tag="201" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8kF-ea-FMV">
@@ -131,7 +131,7 @@
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                             <connections>
-                                                <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ac-201-8kF-ea-FMV"/>
+                                                <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JAA-AA-AAA"/>
                                             </connections>
                                             </button>
                                         </subviews>
@@ -149,7 +149,7 @@
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                             <connections>
-                                                <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ac-6-TGG-qI-9GH"/>
+                                                <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QAA-AA-AAA"/>
                                             </connections>
                                             </button>
                                             <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BeA-1x-ezS">
@@ -162,7 +162,7 @@
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                             <connections>
-                                                <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ac-5-BeA-1x-ezS"/>
+                                                <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PAA-AA-AAA"/>
                                             </connections>
                                             </button>
                                             <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ENm-NI-Hcy">
@@ -175,7 +175,7 @@
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                             <connections>
-                                                <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ac-4-ENm-NI-Hcy"/>
+                                                <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OAA-AA-AAA"/>
                                             </connections>
                                             </button>
                                             <button opaque="NO" tag="202" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ncz-7r-PqT">
@@ -188,7 +188,7 @@
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                             <connections>
-                                                <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ac-202-Ncz-7r-PqT"/>
+                                                <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KAA-AA-AAA"/>
                                             </connections>
                                             </button>
                                         </subviews>
@@ -206,7 +206,7 @@
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                             <connections>
-                                                <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ac-1-tm3-Lp-WTi"/>
+                                                <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CAA-AA-AAA"/>
                                             </connections>
                                             </button>
                                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F2U-Rv-xjb">
@@ -219,7 +219,7 @@
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                             <connections>
-                                                <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ac-2-F2U-Rv-xjb"/>
+                                                <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HAA-AA-AAA"/>
                                             </connections>
                                             </button>
                                             <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LQh-d3-71m">
@@ -232,7 +232,7 @@
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                             <connections>
-                                                <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ac-3-LQh-d3-71m"/>
+                                                <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NAA-AA-AAA"/>
                                             </connections>
                                             </button>
                                             <button opaque="NO" tag="203" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JPO-qM-ZF2">
@@ -245,7 +245,7 @@
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                             <connections>
-                                                <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ac-203-JPO-qM-ZF2"/>
+                                                <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LAA-AA-AAA"/>
                                             </connections>
                                             </button>
                                         </subviews>
@@ -263,7 +263,7 @@
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                     <connections>
-                                                        <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ac-0-btn0"/>
+                                                        <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BAA-AA-AAA"/>
                                                     </connections>
                                                     </button>
                                                 </subviews>
@@ -280,7 +280,7 @@
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                     <connections>
-                                                        <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ac-100-btnDot"/>
+                                                        <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DAA-AA-AAA"/>
                                                     </connections>
                                                     </button>
 
@@ -292,7 +292,7 @@
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                     <connections>
-                                                        <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ac-204-btnEqual"/>
+                                                        <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MAA-AA-AAA"/>
                                                     </connections>
                                                     </button>
                                                 </subviews>
@@ -312,26 +312,26 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="resultLabelOutlet" destination="Bwh-zk-SFf" id="out-result-polished"/>
-                        <outletCollection property="calculatorButtons" destination="btn0" collectionClass="NSMutableArray" id="oc-0-btn0"/>
-                        <outletCollection property="calculatorButtons" destination="tm3-Lp-WTi" collectionClass="NSMutableArray" id="oc-1-tm3-Lp-WTi"/>
-                        <outletCollection property="calculatorButtons" destination="F2U-Rv-xjb" collectionClass="NSMutableArray" id="oc-2-F2U-Rv-xjb"/>
-                        <outletCollection property="calculatorButtons" destination="LQh-d3-71m" collectionClass="NSMutableArray" id="oc-3-LQh-d3-71m"/>
-                        <outletCollection property="calculatorButtons" destination="ENm-NI-Hcy" collectionClass="NSMutableArray" id="oc-4-ENm-NI-Hcy"/>
-                        <outletCollection property="calculatorButtons" destination="BeA-1x-ezS" collectionClass="NSMutableArray" id="oc-5-BeA-1x-ezS"/>
-                        <outletCollection property="calculatorButtons" destination="TGG-qI-9GH" collectionClass="NSMutableArray" id="oc-6-TGG-qI-9GH"/>
-                        <outletCollection property="calculatorButtons" destination="nIT-8W-QCY" collectionClass="NSMutableArray" id="oc-7-nIT-8W-QCY"/>
-                        <outletCollection property="calculatorButtons" destination="mxL-iS-OeL" collectionClass="NSMutableArray" id="oc-8-mxL-iS-OeL"/>
-                        <outletCollection property="calculatorButtons" destination="7gK-fJ-KTW" collectionClass="NSMutableArray" id="oc-9-7gK-fJ-KTW"/>
-                        <outletCollection property="calculatorButtons" destination="btnDot" collectionClass="NSMutableArray" id="oc-100-btnDot"/>
-                        <outletCollection property="calculatorButtons" destination="9rE-2P-L8h" collectionClass="NSMutableArray" id="oc-101-9rE-2P-L8h"/>
-                        <outletCollection property="calculatorButtons" destination="D8g-54-4Y1" collectionClass="NSMutableArray" id="oc-102-D8g-54-4Y1"/>
-                        <outletCollection property="calculatorButtons" destination="iQU-7n-t8X" collectionClass="NSMutableArray" id="oc-103-iQU-7n-t8X"/>
-                        <outletCollection property="calculatorButtons" destination="3Ct-gu-T5B" collectionClass="NSMutableArray" id="oc-200-3Ct-gu-T5B"/>
-                        <outletCollection property="calculatorButtons" destination="8kF-ea-FMV" collectionClass="NSMutableArray" id="oc-201-8kF-ea-FMV"/>
-                        <outletCollection property="calculatorButtons" destination="Ncz-7r-PqT" collectionClass="NSMutableArray" id="oc-202-Ncz-7r-PqT"/>
-                        <outletCollection property="calculatorButtons" destination="JPO-qM-ZF2" collectionClass="NSMutableArray" id="oc-203-JPO-qM-ZF2"/>
-                        <outletCollection property="calculatorButtons" destination="btnEqual" collectionClass="NSMutableArray" id="oc-204-btnEqual"/>
+                        <outlet property="resultLabelOutlet" destination="Bwh-zk-SFf" id="nAA-AA-AAA"/>
+                        <outletCollection property="calculatorButtons" destination="btn0" collectionClass="NSMutableArray" id="UAA-AA-AAA"/>
+                        <outletCollection property="calculatorButtons" destination="tm3-Lp-WTi" collectionClass="NSMutableArray" id="VAA-AA-AAA"/>
+                        <outletCollection property="calculatorButtons" destination="F2U-Rv-xjb" collectionClass="NSMutableArray" id="aAA-AA-AAA"/>
+                        <outletCollection property="calculatorButtons" destination="LQh-d3-71m" collectionClass="NSMutableArray" id="gAA-AA-AAA"/>
+                        <outletCollection property="calculatorButtons" destination="ENm-NI-Hcy" collectionClass="NSMutableArray" id="hAA-AA-AAA"/>
+                        <outletCollection property="calculatorButtons" destination="BeA-1x-ezS" collectionClass="NSMutableArray" id="iAA-AA-AAA"/>
+                        <outletCollection property="calculatorButtons" destination="TGG-qI-9GH" collectionClass="NSMutableArray" id="jAA-AA-AAA"/>
+                        <outletCollection property="calculatorButtons" destination="nIT-8W-QCY" collectionClass="NSMutableArray" id="kAA-AA-AAA"/>
+                        <outletCollection property="calculatorButtons" destination="mxL-iS-OeL" collectionClass="NSMutableArray" id="lAA-AA-AAA"/>
+                        <outletCollection property="calculatorButtons" destination="7gK-fJ-KTW" collectionClass="NSMutableArray" id="mAA-AA-AAA"/>
+                        <outletCollection property="calculatorButtons" destination="btnDot" collectionClass="NSMutableArray" id="WAA-AA-AAA"/>
+                        <outletCollection property="calculatorButtons" destination="9rE-2P-L8h" collectionClass="NSMutableArray" id="XAA-AA-AAA"/>
+                        <outletCollection property="calculatorButtons" destination="D8g-54-4Y1" collectionClass="NSMutableArray" id="YAA-AA-AAA"/>
+                        <outletCollection property="calculatorButtons" destination="iQU-7n-t8X" collectionClass="NSMutableArray" id="ZAA-AA-AAA"/>
+                        <outletCollection property="calculatorButtons" destination="3Ct-gu-T5B" collectionClass="NSMutableArray" id="bAA-AA-AAA"/>
+                        <outletCollection property="calculatorButtons" destination="8kF-ea-FMV" collectionClass="NSMutableArray" id="cAA-AA-AAA"/>
+                        <outletCollection property="calculatorButtons" destination="Ncz-7r-PqT" collectionClass="NSMutableArray" id="dAA-AA-AAA"/>
+                        <outletCollection property="calculatorButtons" destination="JPO-qM-ZF2" collectionClass="NSMutableArray" id="eAA-AA-AAA"/>
+                        <outletCollection property="calculatorButtons" destination="btnEqual" collectionClass="NSMutableArray" id="fAA-AA-AAA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
